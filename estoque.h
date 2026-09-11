@@ -16,3 +16,6 @@ void listar_produtos(Produto lista[], int total);
 float calcular_total(Produto lista[], int total);
 
 #endif
+
+#define TAXA_JUROS 0.08
+float aplicar_juros(float total);
