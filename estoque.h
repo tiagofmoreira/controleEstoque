@@ -6,6 +6,7 @@
 
 typedef struct {
     int id;
+    char codigo_barras[20]
     char nome[30];
     float preco;
     int quantidade;
@@ -14,5 +15,6 @@ typedef struct {
 void exibir_menu(void);
 void listar_produtos(Produto lista[], int total);
 float calcular_total(Produto lista[], int total);
-
+float aplicar_desconto(float total);
 #endif
+
