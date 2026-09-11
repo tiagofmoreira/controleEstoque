@@ -6,6 +6,7 @@ void exibir_menu(void) {
     printf("\n=== CONTROLE DE ESTOQUE ===\n");
     printf("1 - Listar produtos\n");
     printf("2 - Exibir valor total em estoque\n");
+    printf("4 - Exibir total prazo(com juros)\n");
     printf("0 - Sair\n");
     printf("Escolha uma opcao: ");
 }
@@ -55,6 +56,9 @@ int main(void) {
             case 2:
                 printf("\nTotal em estoque: R$ %.2f\n", calcular_total(estoque, total_produtos));
                 break;
+            case 4:
+                printf("\nTotal a prazo (com juros): R$ %.2f\n", aplicar_juros(calcular_total()));
+                break;
             case 0:
                 printf("\nEncerrando o programa...\n");
                 break;
@@ -65,4 +69,7 @@ int main(void) {
     }
 
     return 0;
+}
+float aplicar_juros(float total) {
+    return total + (total * TAXA_JUROS);
 }
