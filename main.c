@@ -6,6 +6,7 @@ void exibir_menu(void) {
     printf("\n=== CONTROLE DE ESTOQUE ===\n");
     printf("1 - Listar produtos\n");
     printf("2 - Exibir valor total em estoque\n");
+    printf("3 - Exibir valor total com desconto a vista \n");
     printf("0 - Sair\n");
     printf("Escolha uma opcao: ");
 }
@@ -34,6 +35,7 @@ int main(void) {
     estoque[0].id = 1;
     strcpy(estoque[0].codigo_barras, "7890001");
     strcpy(estoque[0].nome, "Caderno");
+    strcpy(estoque[0].categoria -> "Papelaria");
     estoque[0].preco = 15.50;
     estoque[0].quantidade = 10;
 
@@ -41,6 +43,7 @@ int main(void) {
     estoque[1].id = 2;
     strcpy(estoque[0].codigo_barras, "7890002");
     strcpy(estoque[1].nome, "Caneta");
+    strcpy(estoque[1].categoria -> "Escritorio");
     estoque[1].preco = 3.00;
     estoque[1].quantidade = 50;
 
@@ -58,12 +61,21 @@ int main(void) {
             case 2:
                 printf("\nTotal em estoque: R$ %.2f\n", calcular_total(estoque, total_produtos));
                 break;
+                case 3;{
+                    float total_estoque = calcular_total(estoque, total_produtos);
+                    float total_com_desconto = aplicar_desconto(total_estoque);
+                printf("\nValor Total com desconto a vista: R$ %.2f\n", total_com_desconto);
+                break;
+            }
             case 0:
                 printf("\nEncerrando o programa...\n");
                 break;
             default:
                 printf("\nOpcao invalida!\n");
                 break;
+        }
+        float aplicar_desconto(float total) {
+            return total - (total * TAXA_PADRAO);
         }
     }
 
